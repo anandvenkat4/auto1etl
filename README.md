@@ -10,7 +10,9 @@ sample.py
 from auto1etl import auto1etl
 
 autoetl = auto1etl.Auto1ETL("/Users/venkat/Documents/workspace/auto1etl/Challenge_me.txt")
+
 data = autoetl.loadAndTransform()
+
 print(data)
 
 Sample Output of the Task: (For the given data)
