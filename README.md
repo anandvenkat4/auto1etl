@@ -22,10 +22,12 @@ Design Considerations:
 
 1. This module was created and tested in Python 3.5 using Anaconda environment setup
 2. No external libraries/pip installations were used
-3. The order of the columns are maintained in the same way as specified. The order is set in the config file whoch can be modified to include/change/delete the columns included. They are automatically re-generated. 
+3. The order of the columns are maintained in the same way as specified. The order is set in the config file which can be modified to include/change/delete the columns included. They are automatically re-generated. 
 4. Locale settings were used to import German Language Settings
 5. The unclean data lines are omitted
 6. The versioning is maintained by git
 7. Separation character is configurable from the config file
+
+Note: The locale settings are imported from the working environment in Mac. Please change the same in config file with respect to the environment the program is run.
 
 
