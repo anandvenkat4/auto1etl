@@ -1,7 +1,6 @@
 {
-    "inputFile":  "Challenge_me.txt",
+    "inputDataFile":  "Challenge_me.txt",
     "sepChar": ";",
-    "filename": "Challenge_me.txt",
     "engLocn": "front",
     "aspiration": "std",
     "NAChar": "-",

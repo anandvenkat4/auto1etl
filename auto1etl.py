@@ -1,11 +1,13 @@
 import sys
+import os
 import locale
 import json
 
 class Auto1ETL:
     def __init__(self):
+        self.currDir = os.path.dirname(os.path.realpath(__file__))
         try:
-            with open('config.json', 'r') as config_file:
+            with open(self.currDir + '/' + 'config.json', 'r') as config_file:
                 self.config = json.load(config_file)
             config_file.close()
         except FileNotFoundError:
@@ -14,7 +16,7 @@ class Auto1ETL:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
-            with open(self.config['filename'], 'r') as data_file:
+            with open(self.currDir + '/' + self.config['inputDataFile'], 'r') as data_file:
                 self.colDef = data_file.readline().strip().split(self.config['sepChar'])
             data_file.close()
         except AttributeError:
@@ -54,7 +56,7 @@ class Auto1ETL:
         self.transformedData.append(tempList)
 
     def loadAndTransform(self):
-        with open(self.config['filename']) as dataTransform:
+        with open(self.currDir + '/' + self.config['inputDataFile']) as dataTransform:
             next(dataTransform)
             for line in dataTransform:
                 if self.config['NAChar'] in line:
@@ -62,7 +64,5 @@ class Auto1ETL:
                 self.transformData(line.strip())
         return [self.config['order']] + self.transformedData
 
-if __name__ == "__main__":
-    auto1etl = Auto1ETL()
-    data = auto1etl.loadAndTransform()
-    print(data)
+#if __name__ == "__main__":
+    #auto1etl = Auto1ETL()
